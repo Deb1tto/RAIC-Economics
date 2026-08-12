@@ -1,4 +1,4 @@
-import { access } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 
 const microSlugs = [
   "ppc", "trade", "marginal", "demand-supply", "elasticity",
@@ -24,6 +24,14 @@ for (const slug of microSlugs) {
     throw new Error(`Old unnamespaced Micro route still exists: /${slug}`);
   } catch (error) {
     if (error instanceof Error && error.message.startsWith("Old unnamespaced")) throw error;
+  }
+}
+
+const microCourseMap = await readFile("app/micro/page.tsx", "utf8");
+for (const slug of microSlugs) {
+  const oldHref = `href: "/${slug}"`;
+  if (microCourseMap.includes(oldHref)) {
+    throw new Error(`Old unnamespaced Micro course-map link still exists: /${slug}`);
   }
 }
 

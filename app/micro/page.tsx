@@ -43,19 +43,19 @@ const curriculum: CurriculumUnit[] = [
     text: "text-[#7a5732]",
     modules: [
       {
-        href: "/ppc",
+        href: "/micro/ppc",
         topic: "Unit 1.3",
         title: "生产可能性曲线",
         description: "PPC、效率、机会成本与经济增长。",
       },
       {
-        href: "/trade",
+        href: "/micro/trade",
         topic: "Unit 1.4",
         title: "比较优势与贸易",
         description: "绝对优势、比较优势、贸易条件与贸易红利。",
       },
       {
-        href: "/marginal",
+        href: "/micro/marginal",
         topic: "Unit 1.5 / 1.6",
         title: "边际分析与消费者选择",
         description: "净收益、MB=MC、边际效用与预算分配。",
@@ -74,25 +74,25 @@ const curriculum: CurriculumUnit[] = [
     text: "text-[#1f6a5c]",
     modules: [
       {
-        href: "/demand-supply",
+        href: "/micro/demand-supply",
         topic: "Unit 2.1 / 2.2",
         title: "需求与供给",
         description: "需求法则、供给法则、沿线移动与整线平移。",
       },
       {
-        href: "/elasticity",
+        href: "/micro/elasticity",
         topic: "Unit 2.3 / 2.4",
         title: "价格弹性",
         description: "PED、PES、总收益测试与弹性决定因素。",
       },
       {
-        href: "/other-elasticities",
+        href: "/micro/other-elasticities",
         topic: "Unit 2.5",
         title: "交叉价格与收入弹性",
         description: "YED、XED、商品属性与相关商品关系。",
       },
       {
-        href: "/sd",
+        href: "/micro/sd",
         topic: "Unit 2.6 / 2.7 / 2.8",
         title: "市场均衡、失衡与政府干预",
         description: "均衡、剩余、短缺过剩、价格管制、税收补贴与 DWL。",
@@ -111,19 +111,19 @@ const curriculum: CurriculumUnit[] = [
     text: "text-[#84511f]",
     modules: [
       {
-        href: "/production-costs",
+        href: "/micro/production-costs",
         topic: "Unit 3.1 / 3.2 / 3.3",
         title: "生产函数与成本曲线",
         description: "TP、MP、AP、短期成本与长期规模经济。",
       },
       {
-        href: "/profit-maximization",
+        href: "/micro/profit-maximization",
         topic: "Unit 3.4 / 3.5",
         title: "利润类型与利润最大化",
         description: "会计利润、经济利润、正常利润与 MR=MC 法则。",
       },
       {
-        href: "/perfect-competition",
+        href: "/micro/perfect-competition",
         topic: "Unit 3.6 / 3.7",
         title: "完全竞争市场",
         description: "价格接受者、停业规则、长期进入退出与零经济利润。",
@@ -142,25 +142,25 @@ const curriculum: CurriculumUnit[] = [
     text: "text-[#7c3f1f]",
     modules: [
       {
-        href: "/monopoly",
+        href: "/micro/monopoly",
         topic: "Unit 4.1 / 4.2",
         title: "垄断市场",
         description: "MR 低于价格、垄断定价、利润矩形与无谓损失。",
       },
       {
-        href: "/price-discrimination",
+        href: "/micro/price-discrimination",
         topic: "Unit 4.3",
         title: "价格歧视",
         description: "分段定价、完全价格歧视、CS 归零与 DWL 消失。",
       },
       {
-        href: "/monopolistic-competition",
+        href: "/micro/monopolistic-competition",
         topic: "Unit 4.4",
         title: "垄断竞争",
         description: "短期像垄断、长期零利润、相切与过剩产能。",
       },
       {
-        href: "/game-theory",
+        href: "/micro/game-theory",
         topic: "Unit 4.5",
         title: "寡头与博弈论",
         description: "2x2 收益矩阵、占优策略、纳什均衡与共谋破裂。",
@@ -179,13 +179,13 @@ const curriculum: CurriculumUnit[] = [
     text: "text-[#4e6124]",
     modules: [
       {
-        href: "/factor-markets",
+        href: "/micro/factor-markets",
         topic: "Unit 5.1 / 5.2 / 5.3",
         title: "要素需求与供给",
         description: "MRP、MRC、最优雇佣与派生需求平移。",
       },
       {
-        href: "/monopsony-labor",
+        href: "/micro/monopsony-labor",
         topic: "Unit 5.4",
         title: "买方垄断劳动力市场",
         description: "MFC、高于工资的成本、低工资低雇佣与 DWL。",
@@ -204,13 +204,13 @@ const curriculum: CurriculumUnit[] = [
     text: "text-[#5a4aa3]",
     modules: [
       {
-        href: "/externalities",
+        href: "/micro/externalities",
         topic: "Unit 6.2",
         title: "外部性",
         description: "市场失灵、社会最优产量、皮古税、补贴与福利纠偏。",
       },
       {
-        href: "/inequality-poverty",
+        href: "/micro/inequality-poverty",
         topic: "Unit 6.5",
         title: "不平等与贫困",
         description: "洛伦兹曲线、累进税、累退税、转移支付与再分配。",
