@@ -1,13 +1,17 @@
 {
-  "name": "ap-microeconomics-visual-lab",
+  "name": "raic-economics",
   "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@10.32.1",
-  "description": "Interactive AP Microeconomics visualization lab built with Next.js and Tailwind CSS.",
+  "description": "Interactive AP Microeconomics and AP Macroeconomics visual labs.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "node --test --experimental-strip-types tests/*.test.ts tests/*.test.mjs",
+    "check:types": "tsc --noEmit",
+    "check:routes": "node scripts/validate-route-files.mjs",
+    "check": "pnpm test && pnpm check:types && pnpm check:routes && pnpm build"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.2.1",
