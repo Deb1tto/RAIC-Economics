@@ -565,7 +565,7 @@ export default function ElasticityPage() {
                 <ChartFrame
                   xMax={AXIS_MAX}
                   yMax={AXIS_MAX}
-                  xLabel={step === "pes" ? "供给量 (Quantity, Qs)" : "需求量 (Quantity, Qd)"}
+                  xLabel="需求量 (Quantity, Qd)"
                   yLabel="价格 (Price, P)"
                 />
 
