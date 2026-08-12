@@ -15,3 +15,8 @@ test("active course is derived from maps and Lab paths", () => {
   assert.equal(getCourseIdFromPathname("/macro/money-market"), "macro");
   assert.equal(getCourseIdFromPathname("/"), null);
 });
+
+test("course detection does not accept prefix collisions", () => {
+  assert.equal(getCourseIdFromPathname("/microeconomics"), null);
+  assert.equal(getCourseIdFromPathname("/macroeconomics"), null);
+});
