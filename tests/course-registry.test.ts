@@ -72,3 +72,32 @@ test("registry integrity validator rejects empty Units", () => {
     /empty Unit/,
   );
 });
+
+test("registry integrity validator rejects course IDs outside the approved order", () => {
+  assert.throws(
+    () => validateCourseRegistry([courses[1], courses[0]]),
+    /course IDs must be exactly micro, macro/,
+  );
+});
+
+test("registry integrity validator rejects incorrect per-course Lab totals", () => {
+  const invalid = structuredClone(courses) as unknown as Array<{
+    units: Array<{ labs: Array<{ slug: string }> }>;
+  }>;
+  invalid[0].units[0].labs.pop();
+  assert.throws(
+    () => validateCourseRegistry(invalid as unknown as CourseSummary[]),
+    /micro must contain 18 Labs; received 17/,
+  );
+});
+
+test("registry integrity validator rejects an unapproved Macro Topic code", () => {
+  const invalid = structuredClone(courses) as unknown as Array<{
+    units: Array<{ labs: Array<{ topics: string[] }> }>;
+  }>;
+  invalid[1].units[0].labs[0].topics[0] = "9.9";
+  assert.throws(
+    () => validateCourseRegistry(invalid as unknown as CourseSummary[]),
+    /Macro must map the approved 42 CED Topics exactly once/,
+  );
+});

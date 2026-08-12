@@ -4,6 +4,17 @@ import type { CourseId, CourseSummary } from "./types.ts";
 
 export const courses = [microCourse, macroCourse] as const;
 
+const approvedCourseIds = ["micro", "macro"] as const;
+const approvedLabTotals = [18, 25] as const;
+const approvedMacroTopics = new Set([
+  ...Array.from({ length: 6 }, (_, index) => `1.${index + 1}`),
+  ...Array.from({ length: 7 }, (_, index) => `2.${index + 1}`),
+  ...Array.from({ length: 9 }, (_, index) => `3.${index + 1}`),
+  ...Array.from({ length: 7 }, (_, index) => `4.${index + 1}`),
+  ...Array.from({ length: 7 }, (_, index) => `5.${index + 1}`),
+  ...Array.from({ length: 6 }, (_, index) => `6.${index + 1}`),
+]);
+
 export function getCourse(courseId: CourseId): CourseSummary {
   const course = courses.find((candidate) => candidate.id === courseId);
   if (!course) throw new Error(`Unknown course: ${courseId}`);
@@ -13,7 +24,11 @@ export function getCourse(courseId: CourseId): CourseSummary {
 export function validateCourseRegistry(registry: readonly CourseSummary[]): void {
   if (registry.length !== 2) throw new Error(`Expected 2 courses, received ${registry.length}`);
 
-  for (const course of registry) {
+  if (!registry.every((course, index) => course.id === approvedCourseIds[index])) {
+    throw new Error("course IDs must be exactly micro, macro");
+  }
+
+  for (const [index, course] of registry.entries()) {
     if (course.units.length !== 6) {
       throw new Error(`${course.id} must contain 6 Units; received ${course.units.length}`);
     }
@@ -25,13 +40,20 @@ export function validateCourseRegistry(registry: readonly CourseSummary[]): void
     if (course.units.some((unit) => unit.labs.length === 0)) {
       throw new Error(`${course.id} contains an empty Unit`);
     }
+    if (slugs.length !== approvedLabTotals[index]) {
+      throw new Error(`${course.id} must contain ${approvedLabTotals[index]} Labs; received ${slugs.length}`);
+    }
   }
 
   const macro = registry.find((course) => course.id === "macro");
   if (!macro) throw new Error("Registry is missing the Macro course");
   const macroTopics = macro.units.flatMap((unit) => unit.labs.flatMap((lab) => lab.topics));
-  if (macroTopics.length !== 42 || new Set(macroTopics).size !== 42) {
-    throw new Error("Macro must map all 42 CED Topics exactly once");
+  if (
+    macroTopics.length !== approvedMacroTopics.size
+    || new Set(macroTopics).size !== approvedMacroTopics.size
+    || macroTopics.some((topic) => !approvedMacroTopics.has(topic))
+  ) {
+    throw new Error("Macro must map the approved 42 CED Topics exactly once");
   }
 }
 
