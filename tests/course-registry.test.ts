@@ -36,6 +36,14 @@ test("registry contains the approved course, Unit, and Lab counts", () => {
   assert.equal(courses.flatMap((course) => course.units.flatMap((unit) => unit.labs)).length, 43);
 });
 
+test("all registered Lab paths are unique after course namespacing", () => {
+  const paths = courses.flatMap((course) =>
+    course.units.flatMap((unit) => unit.labs.map((lab) => `/${course.id}/${lab.slug}`)),
+  );
+  assert.equal(paths.length, 43);
+  assert.equal(new Set(paths).size, 43);
+});
+
 test("registry exposes the approved stable slug sets", () => {
   assert.deepEqual(courses[0].units.flatMap((unit) => unit.labs.map((lab) => lab.slug)), microSlugs);
   assert.deepEqual(courses[1].units.flatMap((unit) => unit.labs.map((lab) => lab.slug)), macroSlugs);

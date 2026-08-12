@@ -8,6 +8,21 @@ const microSlugs = [
   "monopsony-labor", "externalities", "inequality-poverty",
 ];
 
+const macroSlugs = [
+  "scarcity-choice", "ppc-opportunity-cost", "comparative-advantage",
+  "market-fundamentals", "measuring-output", "measuring-prices",
+  "labor-market", "business-cycle", "ad-components", "multiplier-lab",
+  "adas-equilibrium", "output-gaps", "fiscal-policy",
+  "money-financial-assets", "banking-money-expansion", "money-market",
+  "monetary-policy", "loanable-funds", "short-run-policy-actions",
+  "phillips-curve", "money-growth-inflation", "deficits-crowding-out",
+  "economic-growth", "balance-of-payments", "foreign-exchange",
+];
+
+if (macroSlugs.length !== 25 || new Set(macroSlugs).size !== 25) {
+  throw new Error("Macro route validator must contain exactly 25 unique slugs.");
+}
+
 const requiredFiles = [
   "app/page.tsx",
   "app/micro/page.tsx",
