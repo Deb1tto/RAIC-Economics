@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  --paper: rgba(255, 250, 244, 0.86);
+  --ink: #1f2a37;
+  --muted: #5f6775;
+  --line: rgba(31, 42, 55, 0.12);
+  --accent: #bf5b2c;
+  --accent-2: #1f6e6b;
+  --accent-3: #8b2e4c;
+  --accent-4: #6e53b7;
+  --shadow: 0 24px 60px rgba(60, 44, 28, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+input,
+select,
+button,
+textarea {
+  font: inherit;
+}
